@@ -2,13 +2,16 @@
 export default {
   data() {
     return {
-      text: 'page',
-      href: 'page.html',
+      num1: 1,
+      num2: 2,
+      num3: 3,
     }
   },
 }
 </script>
 
 <template>
-  <a :href="href">{{ text }}</a>
+  <div>
+    {{ num1 + num2 + num3 }}
+  </div>
 </template>
