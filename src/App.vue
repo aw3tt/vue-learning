@@ -2,11 +2,14 @@
 export default {
   data() {
     return {
-      visible: false
+      visible: true
     }
   },
   methods: {
     hide: function() {
+      this.visible = false
+    },
+    show: function() {
       this.visible = true
     }
   },
@@ -18,5 +21,6 @@ export default {
 
 <template>
   <button @click="hide">hide</button>
+  <button @click="show">show</button>
   <p v-if="visible">text</p>
 </template>
