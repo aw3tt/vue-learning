@@ -2,13 +2,14 @@
 export default {
   data() {
     return {
-
+      isClicked: false
     }
   },
   methods: {
-    handleClick(event) {
-      event.preventDefault(); // Блокируем переход
-      alert("Запрещено");
+    handleClick() {
+      if (!this.isClicked) {
+        this.isClicked = true;
+      }
     }
   },
   computed: {
@@ -18,5 +19,7 @@ export default {
 </script>
 
 <template>
-  <a href="https://google.com" @click="handleClick">Google</a>
+  <button @click="handleClick" :disabled="isClicked">
+    {{ isClicked ? 'Уже нажато' : 'Нажми меня' }}
+  </button>
 </template>
