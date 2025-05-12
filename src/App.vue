@@ -16,10 +16,5 @@ export default {
 
 <template>
   <button @click="isAuth = !isAuth">Скрыть</button>
-  <template v-if="isAuth">
-    <p>+++</p>
-    <p>+++</p>
-    <p>+++</p>
-  </template>
-
+  <p v-show="isAuth">+++</p>
 </template>
