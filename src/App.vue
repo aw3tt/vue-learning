@@ -7,20 +7,17 @@ export default {
     }
   },
   methods: {
-    show: function() {
-      alert(this.getDayName(3));
+    show: function(number) {
+      alert(this.square(number));
     },
-    getDayName: function (dayNumber) {
-      const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-      if (dayNumber < 0 || dayNumber > 6) {
-        return 'Неверное число! Допустимо: 0-6';
-      }
-      return days[dayNumber];
-    },
+    square: function(number) {
+      return Math.pow(number, 2);
+    }
   }
 }
 </script>
 
 <template>
-  {{show()}}
+  <button @click="show(2)">btn1</button>
+  <button @click="show(3)">btn2</button>
 </template>
