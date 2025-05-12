@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      isClicked: false
+      visible: true
     }
   },
   methods: {
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <button @click="handleClick" :disabled="isClicked">
-    {{ isClicked ? 'Уже нажато' : 'Нажми меня' }}
-  </button>
+  <button @click="() => visible = !visible">Поменять</button>
+  <p v-if="visible">visible = true</p>
+  <p v-if="!visible">visible = false</p>
 </template>
