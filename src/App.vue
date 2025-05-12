@@ -2,29 +2,21 @@
 export default {
   data() {
     return {
-      cost: 300,
-      amount: 5
+
     }
   },
   methods: {
-    show: function(number) {
-      alert(this.square(number));
-    },
-    change: function(text) {
-      this.text = text;
+    handleClick(event) {
+      event.preventDefault(); // Блокируем переход
+      alert("Запрещено");
     }
   },
   computed: {
-    price: function() {
-      return this.cost * this.amount;
-    }
+
   }
 }
 </script>
 
 <template>
-  <p>{{ cost }}</p>
-  <p>{{ amount }}</p>
-  <p>{{ price }}</p>
-  <button @click="this.cost = 500">change</button>
+  <a href="https://google.com" @click="handleClick">Google</a>
 </template>
