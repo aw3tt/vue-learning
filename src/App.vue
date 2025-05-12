@@ -2,15 +2,11 @@
 export default {
   data() {
     return {
-      visible: true
+      hidden: true
     }
   },
   methods: {
-    handleClick() {
-      if (!this.isClicked) {
-        this.isClicked = true;
-      }
-    }
+
   },
   computed: {
 
@@ -19,7 +15,5 @@ export default {
 </script>
 
 <template>
-  <button @click="() => visible = !visible">Поменять</button>
-  <p v-if="visible">visible = true</p>
-  <p v-if="!visible">visible = false</p>
+  <p v-if="!hidden">text</p>
 </template>
