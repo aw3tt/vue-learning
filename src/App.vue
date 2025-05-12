@@ -14,5 +14,5 @@ export default {
 </script>
 
 <template>
-  {{ show() }}
+  <button @mouseover="show">text</button>
 </template>
