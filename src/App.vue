@@ -2,22 +2,22 @@
 export default {
   data() {
     return {
-      num1: 1,
-      num2: 2,
+      text: 'xxx'
     }
   },
   methods: {
     show: function(number) {
       alert(this.square(number));
     },
-    square: function(number) {
-      return Math.pow(number, 2);
+    change: function(text) {
+      this.text = text;
     }
   }
 }
 </script>
 
 <template>
-  <button @click="show(2)">btn1</button>
-  <button @click="show(3)">btn2</button>
+  <p>{{ text }}</p>
+  <button @click="change('yyy')">text</button>
+  <button @click="change('zzz')">text2</button>
 </template>
