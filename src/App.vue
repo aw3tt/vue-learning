@@ -6,12 +6,9 @@ export default {
     }
   },
   methods: {
-    hide: function() {
-      this.visible = false
+    toggle: function() {
+      this.visible = !this.visible
     },
-    show: function() {
-      this.visible = true
-    }
   },
   computed: {
 
@@ -20,7 +17,6 @@ export default {
 </script>
 
 <template>
-  <button @click="hide">hide</button>
-  <button @click="show">show</button>
+  <button @click="toggle">{{ visible ? 'Скрыть' : 'Показать' }}</button>
   <p v-if="visible">text</p>
 </template>
