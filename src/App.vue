@@ -5,9 +5,14 @@ export default {
       obj: { x: 1, y: 2, z: 3 },
     }
   },
+  methods: {
+    show: function() {
+      alert(Date());
+    }
+  }
 }
 </script>
 
 <template>
-  <p>{{ obj.x + obj.y + obj.z }}</p>
+  {{ show() }}
 </template>
