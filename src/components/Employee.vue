@@ -8,12 +8,10 @@ export default {
     }
   },
   methods: {
-    handle() {
-      this.$emit('func', this.name, this.salary);
-    },
+
   },
 }
 </script>
 <template>
-  <button @click="handle">btn</button>
+  <button @click="$emit('func', this.name, this.salary);">btn</button>
 </template>
