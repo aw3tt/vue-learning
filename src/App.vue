@@ -2,8 +2,7 @@
 export default {
   data() {
     return {
-      choice: '',
-      selectedLanguage: '',
+      selected: 'Город не выбран',
     }
   },
   methods: {
@@ -17,59 +16,14 @@ export default {
 
 <template>
   <div>
-    <label>
-      <input name="language" type="radio" v-model="choice" value="Русский">
-      Русский
-    </label><br>
+    <h3>Выберите город в котором проживаете</h3>
+    <select v-model="selected">
+      <option>Москва</option>
+      <option>Санки-Петербург</option>
+      <option>Симферополь</option>
+    </select>
 
-    <label>
-      <input name="language" type="radio" v-model="choice" value="Английский">
-      Английский
-    </label><br>
-
-    <label>
-      <input name="language" type="radio" v-model="choice" value="Французский">
-      Французский
-    </label><br>
-
-    <p>Вы выбрали: <strong>{{ choice || 'язык не выбран' }}</strong></p>
-  </div>
-
-  <div>
-    <h3>Выберите ваш родной язык:</h3>
-
-    <label>
-      <input name="language" type="radio" v-model="selectedLanguage" value="ru">
-      Русский
-    </label><br>
-
-    <label>
-      <input name="language" type="radio" v-model="selectedLanguage" value="en">
-      English
-    </label><br>
-
-    <label>
-      <input name="language" type="radio" v-model="selectedLanguage" value="fr">
-      Français
-    </label><br>
-
-    <div>
-      <p v-if="selectedLanguage === 'ru'">
-        Добро пожаловать! Мы рады видеть вас на нашем сайте.
-      </p>
-
-      <p v-if="selectedLanguage === 'en'">
-        Welcome! We're glad to see you on our website.
-      </p>
-
-      <p v-if="selectedLanguage === 'fr'">
-        Bienvenue ! Nous sommes heureux de vous voir sur notre site.
-      </p>
-
-      <p v-if="!selectedLanguage" class="hint">
-        Пожалуйста, выберите язык для отображения приветствия
-      </p>
-    </div>
+    <p>{{ selected }}</p>
   </div>
 </template>
 
