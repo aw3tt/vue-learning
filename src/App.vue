@@ -30,14 +30,19 @@ export default {
     }
   },
   methods: {
-
+    show() {
+      alert('xxx');
+    },
+    show2() {
+      alert('yyy');
+    }
   }
 }
 </script>
 
 <template>
   <div>
-   <Employee v-for="user in users" :id="user.id" :name="user.name" :salary="user.salary" :age="user.age" :key="user.id" />
+   <Employee @show="show" @show2="show2"/>
   </div>
 </template>
 

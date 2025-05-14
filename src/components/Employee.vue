@@ -1,5 +1,6 @@
 <script>
 export default {
+  emits: ['show', 'show2'],
   props: {
     id: Number,
     name: String,
@@ -9,13 +10,20 @@ export default {
   },
   data() {
     return {
-
+      count: 0
     }
-  }
+  },
+  methods: {
+    handle() {
+      this.$emit('show');
+    },
+    handle2() {
+      this.$emit('show2');
+    }
+  },
 }
 </script>
-<template :key="key">
-  <p>{{name}}</p>
-  <p>{{salary}}</p>
-  <p>{{age}}</p>
+<template>
+  <button @click="handle">btn</button>
+  <button @click="handle2">btn2</button>
 </template>
