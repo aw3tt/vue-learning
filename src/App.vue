@@ -2,7 +2,10 @@
 export default {
   data() {
     return {
-      cssClasses: 'btn',
+      obj: {
+        done: true,
+        selected:  true,
+      },
     }
   },
   methods: {
@@ -15,11 +18,9 @@ export default {
 </script>
 
 <template>
-  <button :class="cssClasses">Button</button>
+  <input :class="obj" type="text">
 </template>
 
 <style>
-  .btn:hover {
-    background: orange;
-  }
+
 </style>
