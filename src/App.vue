@@ -7,8 +7,14 @@ export default {
     }
   },
   methods: {
-    addItem: function() {
-      this.items.unshift(this.newItem)
+    addItem() {
+      if (this.newItem.trim()) {
+        this.items.unshift(this.newItem.trim());
+        this.newItem = '';
+      }
+    },
+    removeItem(index) {
+      this.items.splice(index, 1);
     }
   }
 }
@@ -17,12 +23,16 @@ export default {
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in items" :key="index">
+      <li
+          v-for="(item, index) in items"
+          :key="index"
+          @click="removeItem(index)"
+      >
         {{ item }}
       </li>
     </ul>
-    <input v-model="newItem">
-    <button @click="addItem">add</button>
+    <input v-model="newItem" @keyup.enter="addItem">
+    <button @click="addItem">Добавить</button>
   </div>
 </template>
 
