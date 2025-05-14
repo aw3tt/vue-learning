@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div>
-   <Employee name="john" surn="smit" age="30"/>
+   <Employee :arg="[1, 2, 3]"/>
   </div>
 </template>
 
