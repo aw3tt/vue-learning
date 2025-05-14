@@ -2,17 +2,11 @@
 export default {
   data() {
     return {
-      text: '',
-      words: [],
+      checked: false,
     }
   },
   methods: {
-    splitText: function() {
-      this.words = this.text
-          .trim()
-          .split(/\s+/)
-          .filter(word => word.length > 0);
-    }
+
   },
   computed: {
 
@@ -21,16 +15,15 @@ export default {
 </script>
 
 <template>
-  <textarea v-model="text"></textarea>
-  <p>{{ text }}</p>
-
-  <textarea v-model="text"></textarea>
-  <button @click="splitText">Разделить на слова</button>
-  <ul v-if="words.length > 0">
-    <li v-for="(word, index) in words" :key="index">
-      {{ word }}
-    </li>
-  </ul>
+  <div>
+    <label>
+      <input type="checkbox" v-model="checked">
+      Показать абзац
+    </label>
+    <p v-if="checked">
+      Этот абзац виден только когда чекбокс отмечен!
+    </p>
+  </div>
 </template>
 
 <style>
