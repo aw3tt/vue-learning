@@ -1,7 +1,9 @@
 <script>
 import Employee from './components/Employee.vue'
+import EmployeeForm from "@/components/EmployeeForm.vue";
 export default {
   components: {
+    EmployeeForm,
     Employee
   },
 
@@ -35,6 +37,15 @@ export default {
         }
         return user;
       });
+    },
+    add(name, surn) {
+      let id = this.users.length + 1;
+
+      this.users.push({
+        id,
+        name,
+        surn
+      });
     }
   }
 }
@@ -43,6 +54,7 @@ export default {
 <template>
   <div>
    <Employee v-for="user in users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" @change="change" />
+    <EmployeeForm @add="add" />
   </div>
 </template>
 
