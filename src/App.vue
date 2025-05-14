@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3, 4, 5],
+      arr: ['x', 'y', 'z'],
     }
   },
   methods: {
@@ -15,14 +15,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    <p v-for="el in items">{{el}}</p>
-  </div>
-  <p>-------------------</p>
-  <div>
-    <p v-for="el in items">{{Math.pow(el, 2)}}</p>
-  </div>
   <ul>
-    <li v-for="el in items">{{el}}</li>
+    <li v-for="(el, key) in arr">{{key}}</li>
   </ul>
 </template>
