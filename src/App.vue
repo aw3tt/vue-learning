@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      isAuth: true
+      items: [1, 2, 3, 4, 5],
     }
   },
   methods: {
@@ -15,6 +15,14 @@ export default {
 </script>
 
 <template>
-  <button @click="isAuth = !isAuth">Скрыть</button>
-  <p v-show="isAuth">+++</p>
+  <div>
+    <p v-for="el in items">{{el}}</p>
+  </div>
+  <p>-------------------</p>
+  <div>
+    <p v-for="el in items">{{Math.pow(el, 2)}}</p>
+  </div>
+  <ul>
+    <li v-for="el in items">{{el}}</li>
+  </ul>
 </template>
