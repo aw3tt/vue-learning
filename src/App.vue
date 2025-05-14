@@ -2,8 +2,7 @@
 export default {
   data() {
     return {
-      isValid: true,
-      isDisabled: false,
+
     }
   },
   methods: {
@@ -16,14 +15,14 @@ export default {
 </script>
 
 <template>
-  <p :class="{active: isDisabled, valid: isValid}">Some text</p>
+  <p :style="{color: 'green', backgroundColor: 'yellow'}">
+    text
+  </p>
+  <p :style="{fontWeight: 'bold', fontStyle: 'italic'}">
+    text
+  </p>
 </template>
 
 <style>
-  p.active {
-    background: green;
-  }
-  p.valid {
-    background: red;
-  }
+
 </style>
