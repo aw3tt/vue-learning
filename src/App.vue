@@ -2,7 +2,23 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3],
+      products: [
+        {
+          name: 'product1',
+          price: 100,
+          quantity: 5
+        },
+        {
+          name: 'product2',
+          price: 200,
+          quantity: 4
+        },
+        {
+          name: 'product3',
+          price: 300,
+          quantity: 3
+        },
+      ]
     }
   },
   methods: {
@@ -15,16 +31,21 @@ export default {
 </script>
 
 <template>
-  <template v-for="elem in items">
-    <div>
-      <p>{{elem}}</p>
-      <p class ="divider"></p>
-    </div>
-  </template>
   <ul>
-    <tempalate v-for="elem in items">
-      <li>{{elem}}</li>
-      <li class ="divider"></li>
-    </tempalate>
+    <template v-for="ref in hrefs">
+      <li>
+        <a :href="ref.href">{{ref.text}}</a>
+      </li>
+    </template>
   </ul>
+
+  <table>
+    <template v-for="product in products">
+      <tr>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.quantity}}</td>
+      </tr>
+    </template>
+  </table>
 </template>
