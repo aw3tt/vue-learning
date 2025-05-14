@@ -27,10 +27,14 @@ export default {
     }
   },
   methods: {
-    remove(id) {
-      this.users = this.users.filter((user) => {
-        return user.id !== id;
-      })
+    change(id, name, surn) {
+      this.users = this.users.map((user) => {
+        if (user.id === id) {
+          user.name = name;
+          user.surn = surn;
+        }
+        return user;
+      });
     }
   }
 }
@@ -38,7 +42,7 @@ export default {
 
 <template>
   <div>
-   <Employee v-for="user in users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" @remove="remove" />
+   <Employee v-for="user in users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" @change="change" />
   </div>
 </template>
 
