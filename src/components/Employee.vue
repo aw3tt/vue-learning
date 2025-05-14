@@ -1,7 +1,7 @@
 <script>
 export default {
-  emits: ['func'],
-  props: ['name', 'salary'],
+  emits: ['remove'],
+  props: ['id', 'name', 'surn'],
   data() {
     return {
 
@@ -13,5 +13,10 @@ export default {
 }
 </script>
 <template>
-  <button @click="$emit('func', this.name, this.salary);">btn</button>
+  {{ name }}
+  {{ surn }}
+
+  <button @click="$emit('remove', id)">
+    remove
+  </button>
 </template>

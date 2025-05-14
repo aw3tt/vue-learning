@@ -11,27 +11,26 @@ export default {
         {
           id: 1,
           name: 'name1',
-          salary: 100,
-          age: 30,
+          surn: 'surn1'
         },
         {
           id: 2,
           name: 'name2',
-          salary: 200,
-          age: 40,
+          surn: 'surn2'
         },
         {
           id: 3,
           name: 'name3',
-          salary: 300,
-          age: 50,
+          surn: 'surn3'
         },
       ],
     }
   },
   methods: {
-    func(name, salary) {
-      console.log(name, salary);
+    remove(id) {
+      this.users = this.users.filter((user) => {
+        return user.id !== id;
+      })
     }
   }
 }
@@ -39,7 +38,7 @@ export default {
 
 <template>
   <div>
-   <Employee v-for="user in users" :key="user.id" :name="user.name" :salary="user.salary" @func="func" />
+   <Employee v-for="user in users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" @remove="remove" />
   </div>
 </template>
 
