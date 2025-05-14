@@ -2,12 +2,36 @@
 export default {
   data() {
     return {
-      isDisabled: true,
+      inputText: '',
+      displayText: '',
+      showText: false,
+      clickMessage: '',
     }
   },
   methods: {
-    toggleDisabled() {
-      this.isDisabled = !this.isDisabled
+    showText2() {
+      this.displayText = this.inputText;
+      this.inputText = '';
+    },
+
+    handleClick(event) {
+      if (event.ctrlKey) {
+        this.showText = true;
+      } else {
+        this.showText = false;
+      }
+    },
+    handleLeftClick(event) {
+      this.clickMessage = 'left';
+    },
+
+    handleMiddleClick() {
+      this.clickMessage = 'middle';
+    },
+
+    handleRightClick() {
+      this.clickMessage = 'right';
+      return false; // Предотвращаем контекстное меню
     }
   }
 }
@@ -15,20 +39,26 @@ export default {
 
 <template>
   <div>
-    <input type="text" :disabled="isDisabled" />
-    <button @click="toggleDisabled">btn</button>
+    <input
+        type="text"
+        v-model="inputText"
+        @keyup.enter="showText2"
+    >
+    <p v-if="displayText">Вы ввели: <strong>{{ displayText }}</strong></p><br/>
 
-      <label>
-        <input
-            type="checkbox"
-            @change="toggleDisabled"
-        >
-        {{ isDisabled ? 'Заблокировано' : 'Разблокировано' }}
-      </label>
-      <input
-          type="text"
-          :disabled="isDisabled"
-      >
+    <a href="#" @click.prevent="handleClick">Кликните меня с зажатым Ctrl</a>
+    <p v-if="showText">Вы нажали ссылку с зажатым Ctrl!</p><br/>
+
+    <a
+        href="#"
+        @click.prevent="handleLeftClick"
+        @click.middle.prevent="handleMiddleClick"
+        @contextmenu.prevent="handleRightClick"
+    >
+      Кликните меня разными кнопками мыши
+    </a>
+
+    <p v-if="clickMessage">Нажата кнопка: <strong>{{ clickMessage }}</strong></p>
   </div>
 </template>
 
