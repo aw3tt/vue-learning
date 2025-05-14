@@ -7,7 +7,9 @@ export default {
 
   data() {
     return {
-
+      name: '',
+      salary: 150000,
+      age: 23,
     }
   },
   methods: {
@@ -18,7 +20,7 @@ export default {
 
 <template>
   <div>
-   <Employee :arg="[1, 2, 3]"/>
+   <Employee :name="name" :salary="salary" :age="age" />
   </div>
 </template>
 
