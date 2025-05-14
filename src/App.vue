@@ -2,7 +2,8 @@
 export default {
   data() {
     return {
-      arr: [],
+      choice: '',
+      selectedLanguage: '',
     }
   },
   methods: {
@@ -15,21 +16,61 @@ export default {
 </script>
 
 <template>
-  <div style="display:flex">
-    <input type="checkbox" v-model="arr" value="Анлийский">
-    <p>Анлийский</p>
+  <div>
+    <label>
+      <input name="language" type="radio" v-model="choice" value="Русский">
+      Русский
+    </label><br>
+
+    <label>
+      <input name="language" type="radio" v-model="choice" value="Английский">
+      Английский
+    </label><br>
+
+    <label>
+      <input name="language" type="radio" v-model="choice" value="Французский">
+      Французский
+    </label><br>
+
+    <p>Вы выбрали: <strong>{{ choice || 'язык не выбран' }}</strong></p>
   </div>
-  <div style="display:flex">
-    <input type="checkbox" v-model="arr" value="Французский">
-    <p>Французский</p>
+
+  <div>
+    <h3>Выберите ваш родной язык:</h3>
+
+    <label>
+      <input name="language" type="radio" v-model="selectedLanguage" value="ru">
+      Русский
+    </label><br>
+
+    <label>
+      <input name="language" type="radio" v-model="selectedLanguage" value="en">
+      English
+    </label><br>
+
+    <label>
+      <input name="language" type="radio" v-model="selectedLanguage" value="fr">
+      Français
+    </label><br>
+
+    <div>
+      <p v-if="selectedLanguage === 'ru'">
+        Добро пожаловать! Мы рады видеть вас на нашем сайте.
+      </p>
+
+      <p v-if="selectedLanguage === 'en'">
+        Welcome! We're glad to see you on our website.
+      </p>
+
+      <p v-if="selectedLanguage === 'fr'">
+        Bienvenue ! Nous sommes heureux de vous voir sur notre site.
+      </p>
+
+      <p v-if="!selectedLanguage" class="hint">
+        Пожалуйста, выберите язык для отображения приветствия
+      </p>
+    </div>
   </div>
-  <div style="display:flex">
-    <input type="checkbox" v-model="arr" value="Немецкий">
-    <p>Немецкий</p>
-  </div>
-  <ul>
-    <li v-for="item in arr">{{item}}</li>
-  </ul>
 </template>
 
 <style>
