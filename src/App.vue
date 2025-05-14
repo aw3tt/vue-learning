@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div>
-   <Employee />
+   <Employee name="john" surn="smit" age="30"/>
   </div>
 </template>
 
