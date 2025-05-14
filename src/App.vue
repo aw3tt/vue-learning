@@ -30,11 +30,8 @@ export default {
     }
   },
   methods: {
-    show() {
-      alert('xxx');
-    },
-    show2() {
-      alert('yyy');
+    func(name, salary) {
+      console.log(name, salary);
     }
   }
 }
@@ -42,7 +39,7 @@ export default {
 
 <template>
   <div>
-   <Employee @show="show" @show2="show2"/>
+   <Employee v-for="user in users" :key="user.id" :name="user.name" :salary="user.salary" @func="func" />
   </div>
 </template>
 
