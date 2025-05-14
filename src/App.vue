@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-
+      message: 'hello',
     }
   },
   methods: {
@@ -15,12 +15,11 @@ export default {
 </script>
 
 <template>
-  <p :style="{color: 'green', backgroundColor: 'yellow'}">
-    text
-  </p>
-  <p :style="{fontWeight: 'bold', fontStyle: 'italic'}">
-    text
-  </p>
+  <input v-model="message">
+  <p>{{ message.toUpperCase() }}</p>
+
+  <input v-model="message">
+  <p>{{ Math.pow(message, 2) }}</p>
 </template>
 
 <style>
