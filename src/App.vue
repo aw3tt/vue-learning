@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-
+      cssClasses: 'btn',
     }
   },
   methods: {
@@ -15,16 +15,11 @@ export default {
 </script>
 
 <template>
-  <p>
-    1
-  </p>
-  <p>
-    2
-  </p>
+  <button :class="cssClasses">Button</button>
 </template>
 
 <style>
-  p {
-    color: purple;
+  .btn:hover {
+    background: orange;
   }
 </style>
